@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-personal-info',
   templateUrl: './personal-info.component.html',
@@ -20,18 +21,16 @@ export class PersonalInfoComponent implements OnInit {
       // Other personal information fields
     });
   }
-
   submitPersonalInfo() {
     if (this.personalInfoForm.invalid) {
       return;
     }
-
+  
     const formData = this.personalInfoForm.value;
     this.http.post('http://localhost:8080/api/job-applications/personal-info', formData)
       .subscribe(
         (response) => {
           console.log('Personal information submitted successfully:', response);
-          // Navigate to the work experience form
           this.router.navigate(['/work-experience']);
         },
         (error) => {
@@ -39,4 +38,4 @@ export class PersonalInfoComponent implements OnInit {
         }
       );
   }
-}
+}  

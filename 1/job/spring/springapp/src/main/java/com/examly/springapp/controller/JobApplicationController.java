@@ -12,6 +12,7 @@ import com.examly.springapp.repository.PersonalInfoRepository;
 import com.examly.springapp.repository.WorkExperienceRepository;
 
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/job-applications")
     public class JobApplicationController {
